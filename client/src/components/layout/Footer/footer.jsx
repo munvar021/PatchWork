@@ -1,5 +1,5 @@
 import React from 'react';
-import { FooterContainer } from './layoutStyles';
+import { FooterContainer } from './footerStyles';
 
 const Footer = ({ sidebarOpen }) => {
   return (

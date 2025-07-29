@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HeaderContainer, ToggleButton } from './layoutStyles';
+import { HeaderContainer, ToggleButton } from './headerStyles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 

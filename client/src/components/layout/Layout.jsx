@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
+import Header from './Header/header';
+import Sidebar from './Sidebar/sidebar';
+import Footer from './Footer/footer';
 import {
   AppContainer,
   MainContent,
-  GlobalStyle,
   Overlay,
 } from './layoutStyles';
+import { GlobalStyle } from '../../styles/GlobalStyles';
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const Projects = () => <h2>Projects</h2>;
