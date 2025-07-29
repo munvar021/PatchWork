@@ -6,6 +6,8 @@ import {
   NavList,
   NavItem,
   NavLink,
+  StyledLogoImage,
+  AnimatedSpan,
 } from "./sidebarStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -21,13 +23,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
     <SidebarContainer isOpen={isOpen}>
       <SidebarLogo>
-        {isOpen && (
-          <img
-            src="/favIcon.ico"
-            alt="My App Logo"
-            style={{ width: "32px", height: "32px" }}
-          />
-        )}
+        {isOpen && <StyledLogoImage src="/favIcon.ico" alt="My App Logo" />}
         <ToggleButton onClick={toggleSidebar}>
           {isOpen ? (
             <FontAwesomeIcon icon={faAngleLeft} />
@@ -40,65 +36,25 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <NavItem>
           <NavLink to="/">
             <FontAwesomeIcon icon={faTachometerAlt} />
-            {isOpen && (
-              <span
-                style={{
-                  animation: `
-              ${isOpen ? "fadeIn" : "fadeOut"} 0.3s forwards
-            `,
-                }}
-              >
-                Dashboard
-              </span>
-            )}
+            {isOpen && <AnimatedSpan isOpen={isOpen}>Dashboard</AnimatedSpan>}
           </NavLink>
         </NavItem>
         <NavItem>
           <NavLink to="/projects">
             <FontAwesomeIcon icon={faProjectDiagram} />
-            {isOpen && (
-              <span
-                style={{
-                  animation: `
-              ${isOpen ? "fadeIn" : "fadeOut"} 0.3s forwards
-            `,
-                }}
-              >
-                Projects
-              </span>
-            )}
+            {isOpen && <AnimatedSpan isOpen={isOpen}>Projects</AnimatedSpan>}
           </NavLink>
         </NavItem>
         <NavItem>
           <NavLink to="/users">
             <FontAwesomeIcon icon={faUsers} />
-            {isOpen && (
-              <span
-                style={{
-                  animation: `
-              ${isOpen ? "fadeIn" : "fadeOut"} 0.3s forwards
-            `,
-                }}
-              >
-                Users
-              </span>
-            )}
+            {isOpen && <AnimatedSpan isOpen={isOpen}>Users</AnimatedSpan>}
           </NavLink>
         </NavItem>
         <NavItem>
           <NavLink to="/settings">
             <FontAwesomeIcon icon={faCog} />
-            {isOpen && (
-              <span
-                style={{
-                  animation: `
-              ${isOpen ? "fadeIn" : "fadeOut"} 0.3s forwards
-            `,
-                }}
-              >
-                Settings
-              </span>
-            )}
+            {isOpen && <AnimatedSpan isOpen={isOpen}>Settings</AnimatedSpan>}
           </NavLink>
         </NavItem>
       </NavList>

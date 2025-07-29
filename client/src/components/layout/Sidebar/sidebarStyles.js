@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
-import { slideInFromLeft, slideOutToLeft } from "../../../styles/animations";
+import { slideInFromLeft, slideOutToLeft, fadeIn, fadeOut } from "../../../styles/animations";
 
 export const SidebarContainer = styled.aside`
   width: ${({ isOpen }) => (isOpen ? "250px" : "80px")};
@@ -20,8 +20,8 @@ export const SidebarContainer = styled.aside`
     width: 250px;
     transform: ${({ isOpen }) =>
       isOpen ? "translateX(0)" : "translateX(-100%)"};
-    animation: ${({ isOpen }) =>
-      isOpen ? slideInFromLeft : slideOutToLeft} 0.3s forwards;
+    animation: ${({ isOpen }) => (isOpen ? slideInFromLeft : slideOutToLeft)}
+      0.3s forwards;
   }
 `;
 
@@ -68,4 +68,15 @@ export const NavLink = styled(Link)`
     transform: translateX(5px) scale(1.02);
     color: #00bfff; /* A subtle highlight color */
   }
+`;
+
+export const StyledLogoImage = styled.img`
+  width: 32px;
+  height: 32px;
+`;
+
+export const AnimatedSpan = styled.span`
+  ${({ isOpen, fadeIn, fadeOut }) => css`
+    animation: ${isOpen ? fadeIn : fadeOut} 0.3s forwards;
+  `}
 `;
