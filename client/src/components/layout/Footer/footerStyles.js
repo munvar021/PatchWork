@@ -6,13 +6,6 @@ export const FooterContainer = styled.footer`
   color: ${({ theme }) => theme.colors.textSecondary};
   text-align: center;
   padding: 10px;
-  position: fixed;
-  bottom: 0;
-  left: ${({ sidebarOpen }) => (sidebarOpen ? '250px' : '80px')};
-  right: 0;
-  transition: left 0.3s ease;
-
-  @media (max-width: 1023px) {
-    left: 0;
-  }
+  width: 100%;
+  /* Removed fixed positioning */
 `;

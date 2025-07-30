@@ -8,9 +8,9 @@ import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBars, faUserCircle, faTachometerAlt, faProjectDiagram, faUsers, faCog, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faUserCircle, faSignOutAlt, faTachometerAlt, faProjectDiagram, faUsers, faCog, faAngleLeft, faAngleRight, faFileAlt, faMapMarkedAlt, faHistory, faTasks, faChartBar, faUserShield, faUserCog } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faBars, faUserCircle, faTachometerAlt, faProjectDiagram, faUsers, faCog, faAngleLeft, faAngleRight);
+library.add(faBars, faUserCircle, faSignOutAlt, faTachometerAlt, faProjectDiagram, faUsers, faCog, faAngleLeft, faAngleRight, faFileAlt, faMapMarkedAlt, faHistory, faTasks, faChartBar, faUserShield, faUserCog);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

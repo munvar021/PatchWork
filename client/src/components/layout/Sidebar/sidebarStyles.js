@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
-import { slideInFromLeft, slideOutToLeft, fadeIn, fadeOut } from "../../../styles/animations";
+import { slideInFromLeft, slideOutToLeft } from "../../../animations/animations";
 
 export const SidebarContainer = styled.aside`
-  width: ${({ isOpen }) => (isOpen ? "250px" : "80px")};
+  width: ${({ $isOpen }) => ($isOpen ? "250px" : "80px")};
   background: ${({ theme }) => theme.glassmorphism.background};
   backdrop-filter: ${({ theme }) => theme.glassmorphism.backdropFilter};
   border-right: 1px solid ${({ theme }) => theme.colors.border};
@@ -18,9 +18,9 @@ export const SidebarContainer = styled.aside`
 
   @media (max-width: 1023px) {
     width: 250px;
-    transform: ${({ isOpen }) =>
-      isOpen ? "translateX(0)" : "translateX(-100%)"};
-    animation: ${({ isOpen }) => (isOpen ? slideInFromLeft : slideOutToLeft)}
+    transform: ${({ $isOpen }) =>
+      $isOpen ? "translateX(0)" : "translateX(-100%)"};
+    animation: ${({ $isOpen }) => ($isOpen ? slideInFromLeft : slideOutToLeft)}
       0.3s forwards;
   }
 `;
@@ -76,7 +76,8 @@ export const StyledLogoImage = styled.img`
 `;
 
 export const AnimatedSpan = styled.span`
-  ${({ isOpen, fadeIn, fadeOut }) => css`
-    animation: ${isOpen ? fadeIn : fadeOut} 0.3s forwards;
+  ${({ $isOpen }) => css`
+    opacity: ${$isOpen ? 1 : 0};
+    transition: opacity 0.3s ease-in-out;
   `}
 `;

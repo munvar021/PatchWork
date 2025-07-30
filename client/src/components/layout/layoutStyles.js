@@ -1,14 +1,15 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const AppContainer = styled.div`
   display: flex;
-  height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;
 `;
 
 export const MainContent = styled.main`
-  margin-left: ${({ sidebarOpen }) => (sidebarOpen ? '250px' : '80px')};
-  margin-top: 70px;
-  padding: 20px;
+  flex-grow: 1;
+  margin-left: ${({ $sidebarOpen, $isLoggedIn }) =>
+    $isLoggedIn ? ($sidebarOpen ? '250px' : '80px') : '0'};
   width: 100%;
   overflow-y: auto;
   transition: margin-left 0.3s ease;
@@ -22,7 +23,7 @@ export const Overlay = styled.div`
   display: none;
 
   @media (max-width: 1023px) {
-    display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+    display: ${({ isOpen }) => (isOpen ? "block" : "none")};
     position: fixed;
     top: 0;
     left: 0;
