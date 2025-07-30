@@ -1,0 +1,113 @@
+
+
+---
+
+## 🧑‍💻 Frontend Role-Based Pages & Features
+
+### 🧍 CITIZEN (User)
+
+#### 1. HomePage (`/`)
+- Brief overview of the platform
+- Highlight benefits and ease of use
+- CTA button: “Report an Issue”
+- Live map preview with top reports
+
+#### 2. ReportIssue (`/report`)
+- Form with fields:
+  - Description
+  - Category
+  - Upload Image (drag-drop or file input)
+  - Auto-location or map select
+- On submit:
+  - Store geo-tag, image, metadata
+
+#### 3. MyReports (`/myreports`)
+- Timeline/list of all reports
+- Status: Pending, In Progress, Resolved
+- View:
+  - Admin/technician updates
+  - Severity score
+  - Resolution time
+
+#### 4. MapView (`/map`)
+- Full-screen map
+- Markers filtered by:
+  - Type
+  - Severity
+  - Region
+- Click marker to preview issue
+
+---
+
+### 🛠️ TECHNICIAN
+
+#### 1. AssignedIssues (`/technician/issues`)
+- List assigned issues
+- View:
+  - Location map
+  - Description
+  - AI severity
+- Actions:
+  - Mark In Progress
+  - Upload fix image
+  - Resolve with comments
+
+#### 2. TaskHistory (`/technician/history`)
+- Past resolved issues
+- Track performance:
+  - Resolution time
+  - Total handled
+
+---
+
+### 🏛️ ADMIN
+
+#### 1. AdminDashboard (`/admin/dashboard`)
+- Cards with key metrics:
+  - Total Reports
+  - Avg Fix Time
+  - % Resolved
+- Issue Heatmap
+- Animated statistics
+
+#### 2. ManageIssues (`/admin/issues`)
+- Filterable master table
+- View:
+  - Image
+  - Severity
+  - Assigned technician
+- Edit/assign/close from table view
+
+#### 3. AssignTask (`/admin/assign`)
+- View available technicians
+- Technician workload
+- Batch assign or individual task routing
+
+#### 4. Analytics (`/admin/analytics`)
+- Graphs and charts:
+  - Trends by category
+  - Geo density
+  - Time to resolution
+- Export reports to CSV/PDF
+
+#### 5. UserManagement (`/admin/users`)
+- View citizen & technician accounts
+- Deactivate/report accounts
+- Add/verify technicians
+
+---
+
+## 🔐 Role-Based Routing
+
+- Custom PrivateRoutes:
+  - `<PrivateRoute role="admin" />`
+  - `<PrivateRoute role="technician" />`
+  - `<PrivateRoute role="citizen" />`
+- JWT decoded on login to determine role
+- Context or Redux holds session info
+
+- Redirects:
+  - Citizen → `/citizen/home`
+  - Technician → `/technician/issues`
+  - Admin → `/admin/dashboard`
+

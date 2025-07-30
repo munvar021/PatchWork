@@ -4,6 +4,8 @@ import './index.css';
 import '@fortawesome/fontawesome-svg-core/styles.css'; // Import Font Awesome CSS
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from 'styled-components';
+import theme from './styles/theme';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBars, faUserCircle, faTachometerAlt, faProjectDiagram, faUsers, faCog, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +15,9 @@ library.add(faBars, faUserCircle, faTachometerAlt, faProjectDiagram, faUsers, fa
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

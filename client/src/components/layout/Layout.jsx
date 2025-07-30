@@ -8,7 +8,7 @@ import {
   MainContent,
   Overlay,
 } from './layoutStyles';
-import { GlobalStyle } from '../../styles/GlobalStyles';
+
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const Projects = () => <h2>Projects</h2>;
@@ -40,7 +40,7 @@ const Layout = () => {
 
   return (
     <Router>
-      <GlobalStyle />
+      
       <AppContainer>
         <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
         <Overlay isOpen={sidebarOpen && isMobile} onClick={toggleSidebar} />

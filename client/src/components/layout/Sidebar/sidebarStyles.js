@@ -4,9 +4,9 @@ import { slideInFromLeft, slideOutToLeft, fadeIn, fadeOut } from "../../../style
 
 export const SidebarContainer = styled.aside`
   width: ${({ isOpen }) => (isOpen ? "250px" : "80px")};
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  background: ${({ theme }) => theme.glassmorphism.background};
+  backdrop-filter: ${({ theme }) => theme.glassmorphism.backdropFilter};
+  border-right: 1px solid ${({ theme }) => theme.colors.border};
   transition: width 0.3s ease, transform 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@ export const SidebarLogo = styled.div`
 export const ToggleButton = styled.button`
   background: none;
   border: none;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.textPrimary};
   cursor: pointer;
   font-size: 1.5rem;
   transition: transform 0.3s ease;
@@ -57,7 +57,7 @@ export const NavItem = styled.li`
 `;
 
 export const NavLink = styled(Link)`
-  color: #fff;
+  color: ${({ theme }) => theme.colors.textPrimary};
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -66,7 +66,7 @@ export const NavLink = styled(Link)`
 
   &:hover {
     transform: translateX(5px) scale(1.02);
-    color: #00bfff; /* A subtle highlight color */
+    color: ${({ theme }) => theme.colors.accent}; /* A subtle highlight color */
   }
 `;
 

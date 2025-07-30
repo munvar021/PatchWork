@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-  background: rgba(0, 0, 0, 0.2);
+  background: ${({ theme }) => theme.glassmorphism.background};
+  backdrop-filter: ${({ theme }) => theme.glassmorphism.backdropFilter};
+  color: ${({ theme }) => theme.colors.textSecondary};
   text-align: center;
   padding: 10px;
   position: fixed;

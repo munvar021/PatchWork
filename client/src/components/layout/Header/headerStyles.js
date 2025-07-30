@@ -6,8 +6,10 @@ export const HeaderContainer = styled.header`
   left: ${({ sidebarOpen }) => (sidebarOpen ? '250px' : '80px')};
   right: 0;
   height: 70px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: ${({ theme }) => theme.glassmorphism.background};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  color: ${({ theme }) => theme.colors.textPrimary};
+  backdrop-filter: ${({ theme }) => theme.glassmorphism.backdropFilter};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,7 +25,7 @@ export const HeaderContainer = styled.header`
 export const ToggleButton = styled.button`
   background: none;
   border: none;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.textPrimary};
   cursor: pointer;
   font-size: 1.5rem;
 `;
