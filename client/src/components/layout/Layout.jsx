@@ -7,6 +7,7 @@ import {
   AppContainer,
   MainContent,
   Overlay,
+  ContentWrapper,
 } from './layoutStyles';
 import AppRoutes from '../../routes/AppRoutes';
 import { useAuth } from '../../context/AuthContext';
@@ -44,13 +45,13 @@ const Layout = () => {
             <Overlay isOpen={sidebarOpen && isMobile} onClick={toggleSidebar} />
           </>
         )}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <ContentWrapper>
           <Header toggleSidebar={toggleSidebar} isMobile={isMobile} $sidebarOpen={sidebarOpen && isLoggedIn} $isLoggedIn={isLoggedIn} />
           <MainContent $sidebarOpen={sidebarOpen} $isLoggedIn={isLoggedIn}>
             <AppRoutes />
           </MainContent>
           <Footer $sidebarOpen={sidebarOpen && isLoggedIn} />
-        </div>
+        </ContentWrapper>
       </AppContainer>
     </Router>
   );

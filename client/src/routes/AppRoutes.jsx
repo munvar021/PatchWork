@@ -1,25 +1,25 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PrivateRoute from '../components/Auth/PrivateRoute';
-import Login from '../components/Auth/Login';
-import Register from '../components/Auth/Register';
+import Login from '../components/Auth/Login/login';
+import Register from '../components/Auth/Register/register';
 
 // Citizen Pages
-import HomePage from '../pages/Citizen/HomePage';
-import ReportIssue from '../pages/Citizen/ReportIssue';
-import MyReports from '../pages/Citizen/MyReports';
-import MapView from '../pages/Citizen/MapView';
+import HomePage from '../pages/Citizen/Home/home';
+import ReportIssue from '../pages/Citizen/ReportIssue/reportIssue';
+import MyReports from '../pages/Citizen/MyReports/myReports';
+import MapView from '../pages/Citizen/MapView/mapView';
 
 // Technician Pages
-import AssignedIssues from '../pages/Technician/AssignedIssues';
-import TaskHistory from '../pages/Technician/TaskHistory';
+import AssignedIssues from '../pages/Technician/AssignedIssues/assignedIssues';
+import TaskHistory from '../pages/Technician/TaskHistory/taskHistory';
 
 // Admin Pages
-import AdminDashboard from '../pages/Admin/AdminDashboard';
-import ManageIssues from '../pages/Admin/ManageIssues';
-import AssignTask from '../pages/Admin/AssignTask';
-import Analytics from '../pages/Admin/Analytics';
-import UserManagement from '../pages/Admin/UserManagement';
+import AdminDashboard from '../pages/Admin/AdminDashboard/adminDashboard';
+import ManageIssues from '../pages/Admin/ManageIssues/manageIssues';
+import AssignTask from '../pages/Admin/AssignTask/assignTask';
+import Analytics from '../pages/Admin/Analytics/analytics';
+import UserManagement from '../pages/Admin/UserManagement/userManagement';
 
 const AppRoutes = () => {
   return (
