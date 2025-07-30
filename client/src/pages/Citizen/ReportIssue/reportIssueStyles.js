@@ -1,18 +1,30 @@
 import styled from 'styled-components';
 
 export const ReportIssueContainer = styled.div`
-  padding: 20px;
+  padding: ${({ theme }) => theme.padding.large};
+
+  @media ${({ theme }) => theme.responsive.tablet} {
+    padding: ${({ theme }) => theme.padding.medium};
+  }
+
+  @media ${({ theme }) => theme.responsive.mobile} {
+    padding: ${({ theme }) => theme.padding.small};
+  }
 `;
 
 export const Title = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: ${({ theme }) => theme.fontSizes.xxlarge};
+  margin-bottom: ${({ theme }) => theme.margin.large};
+
+  @media ${({ theme }) => theme.responsive.tablet} {
+    font-size: ${({ theme }) => theme.fontSizes.xlarge};
+  }
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: ${({ theme }) => theme.margin.medium};
 `;
 
 export const FormGroup = styled.div`
@@ -21,30 +33,35 @@ export const FormGroup = styled.div`
 `;
 
 export const Label = styled.label`
-  margin-bottom: 5px;
+  margin-bottom: ${({ theme }) => theme.margin.small};
   font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSizes.medium};
 `;
 
 export const Input = styled.input`
-  padding: 10px;
+  padding: ${({ theme }) => theme.padding.medium};
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
+  font-size: ${({ theme }) => theme.fontSizes.medium};
 `;
 
 export const TextArea = styled.textarea`
-  padding: 10px;
+  padding: ${({ theme }) => theme.padding.medium};
   border: 1px solid #ccc;
-  border-radius: 4px;
-  min-height: 80px;
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
+  min-height: 120px;
+  font-size: ${({ theme }) => theme.fontSizes.medium};
 `;
 
 export const Button = styled.button`
-  padding: 10px 15px;
+  padding: ${({ theme }) => theme.padding.medium} ${({ theme }) => theme.padding.large};
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
   cursor: pointer;
+  font-size: ${({ theme }) => theme.fontSizes.medium};
+
   &:hover {
     background-color: #0056b3;
   }

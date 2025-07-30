@@ -16,7 +16,7 @@ export const SidebarContainer = styled.aside`
   height: 100%;
   z-index: 1000;
 
-  @media (max-width: 1023px) {
+  @media ${({ theme }) => theme.responsive.laptop} {
     width: 250px;
     transform: ${({ $isOpen }) =>
       $isOpen ? "translateX(0)" : "translateX(-100%)"};
@@ -26,7 +26,7 @@ export const SidebarContainer = styled.aside`
 `;
 
 export const SidebarLogo = styled.div`
-  padding: 20px;
+  padding: ${({ theme }) => theme.padding.medium};
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@ export const ToggleButton = styled.button`
   border: none;
   color: ${({ theme }) => theme.colors.textPrimary};
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: ${({ theme }) => theme.fontSizes.xlarge};
   transition: transform 0.3s ease;
 
   &:hover {
@@ -49,11 +49,15 @@ export const ToggleButton = styled.button`
 export const NavList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 20px 0;
+  margin: ${({ theme }) => theme.margin.medium} 0;
 `;
 
 export const NavItem = styled.li`
-  padding: 15px 20px;
+  padding: ${({ theme }) => theme.padding.medium} ${({ theme }) => theme.padding.large};
+
+  @media ${({ theme }) => theme.responsive.mobile} {
+    padding: ${({ theme }) => theme.padding.small} ${({ theme }) => theme.padding.medium};
+  }
 `;
 
 export const NavLink = styled(Link)`
@@ -61,8 +65,9 @@ export const NavLink = styled(Link)`
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: ${({ theme }) => theme.margin.medium};
   transition: all 0.3s ease-in-out;
+  font-size: ${({ theme }) => theme.fontSizes.medium};
 
   &:hover {
     transform: translateX(5px) scale(1.02);

@@ -3,43 +3,59 @@ import { Link } from "react-router-dom";
 import { fadeIn, slideInFromLeft } from "../../../animations/animations";
 
 export const HomePageContainer = styled.div`
-  padding: 40px;
+  padding: ${({ theme }) => theme.padding.large};
   text-align: center;
   background: ${({ theme }) => theme.glassmorphism.background};
   backdrop-filter: ${({ theme }) => theme.glassmorphism.backdropFilter};
-  border-radius: ${({ theme }) => theme.glassmorphism.borderRadius};
+  border-radius: ${({ theme }) => theme.borderRadius.large};
   border: ${({ theme }) => theme.glassmorphism.border};
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   color: ${({ theme }) => theme.colors.textPrimary};
   animation: ${fadeIn} 1s ease-out;
+
+  @media ${({ theme }) => theme.responsive.tablet} {
+    padding: ${({ theme }) => theme.padding.medium};
+  }
+
+  @media ${({ theme }) => theme.responsive.mobile} {
+    padding: ${({ theme }) => theme.padding.small};
+  }
 `;
 
 export const Title = styled.h2`
-  font-size: 2.5rem;
+  font-size: ${({ theme }) => theme.fontSizes.xxlarge};
   color: ${({ theme }) => theme.colors.textPrimary};
-  margin-bottom: 20px;
+  margin: ${({ theme }) => theme.margin.medium} 0;
+
+  @media ${({ theme }) => theme.responsive.tablet} {
+    font-size: ${({ theme }) => theme.fontSizes.xlarge};
+  }
 `;
 
 export const Subtitle = styled.p`
-  font-size: 1.2rem;
+  font-size: ${({ theme }) => theme.fontSizes.large};
   color: ${({ theme }) => theme.colors.textSecondary};
-  margin-bottom: 30px;
+  margin-bottom: ${({ theme }) => theme.margin.large};
   line-height: 1.6;
+
+  @media ${({ theme }) => theme.responsive.tablet} {
+    font-size: ${({ theme }) => theme.fontSizes.medium};
+  }
 `;
 
 export const FeatureGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  gap: ${({ theme }) => theme.margin.large};
+  margin-top: ${({ theme }) => theme.margin.large};
+  margin-bottom: ${({ theme }) => theme.margin.large};
   animation: ${fadeIn} 1.6s ease-out;
 `;
 
 export const FeatureCard = styled.div`
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 25px;
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
+  padding: ${({ theme }) => theme.padding.medium};
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   text-align: left;
@@ -47,38 +63,44 @@ export const FeatureCard = styled.div`
 
 export const FeatureTitle = styled.h3`
   color: ${({ theme }) => theme.colors.accent};
-  margin-bottom: 10px;
+  margin-bottom: ${({ theme }) => theme.margin.small};
+  font-size: ${({ theme }) => theme.fontSizes.large};
 `;
 
 export const FeatureDescription = styled.p`
   color: ${({ theme }) => theme.colors.textSecondary};
-  font-size: 0.95rem;
+  font-size: ${({ theme }) => theme.fontSizes.medium};
 `;
 
 export const CtaButton = styled(Link)`
   display: inline-block;
-  padding: 15px 30px;
+  padding: ${({ theme }) => theme.padding.medium} ${({ theme }) => theme.padding.large};
   background: ${({ theme }) => theme.gradients.button};
   color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
+  font-size: ${({ theme }) => theme.fontSizes.large};
   font-weight: bold;
   text-decoration: none;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  margin-top: 30px;
+  margin-top: ${({ theme }) => theme.margin.large};
   animation: ${fadeIn} 1.4s ease-out;
 
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   }
+
+  @media ${({ theme }) => theme.responsive.mobile} {
+    font-size: ${({ theme }) => theme.fontSizes.medium};
+    padding: ${({ theme }) => theme.padding.small} ${({ theme }) => theme.padding.medium};
+  }
 `;
 
 export const CarouselContainer = styled.div`
   margin: 0 auto; /* Center the carousel */
-  max-width: 800px;
-  border-radius: 10px;
+  width: 100%;
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   animation: ${slideInFromLeft} 1s ease-out;
@@ -86,18 +108,24 @@ export const CarouselContainer = styled.div`
 
 export const CarouselImage = styled.img`
   width: 100%;
-  height: 400px;
+  height: 500px;
   object-fit: cover;
+
+  @media ${({ theme }) => theme.responsive.tablet} {
+    height: 400px;
+  }
+
+  @media ${({ theme }) => theme.responsive.mobile} {
+    height: 300px;
+  }
 `;
-
-
 
 export const SlideContent = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px;
+  padding: ${({ theme }) => theme.padding.medium};
   background: ${({ theme }) => theme.glassmorphism.background};
   backdrop-filter: ${({ theme }) => theme.glassmorphism.backdropFilter};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
@@ -106,28 +134,37 @@ export const SlideContent = styled.div`
 `;
 
 export const SlideTitle = styled.h3`
-  font-size: 1.8rem;
+  font-size: ${({ theme }) => theme.fontSizes.xlarge};
   color: ${({ theme }) => theme.colors.textPrimary};
-  margin-bottom: 10px;
+  margin-bottom: ${({ theme }) => theme.margin.small};
+
+  @media ${({ theme }) => theme.responsive.tablet} {
+    font-size: ${({ theme }) => theme.fontSizes.large};
+  }
 `;
 
 export const SlideDescription = styled.p`
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSizes.medium};
   color: ${({ theme }) => theme.colors.textSecondary};
-  margin-bottom: 15px;
+  margin: ${({ theme }) => theme.margin.medium} 0;
+
+  @media ${({ theme }) => theme.responsive.tablet} {
+    font-size: ${({ theme }) => theme.fontSizes.small};
+  }
 `;
 
 export const SlideButton = styled(Link)`
   display: inline-block;
-  padding: 10px 20px;
+  padding: ${({ theme }) => theme.padding.small} ${({ theme }) => theme.padding.medium};
   background: ${({ theme }) => theme.gradients.button};
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 0.9rem;
+  border-radius: ${({ theme }) => theme.borderRadius.small};
+  font-size: ${({ theme }) => theme.fontSizes.small};
   font-weight: bold;
   text-decoration: none;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  margin: ${({ theme }) => theme.margin.medium} 0;
 
   &:hover {
     transform: translateY(-2px);
@@ -143,6 +180,10 @@ export const GlobalCarouselStyles = styled.div`
     &:hover {
       background: rgba(0, 0, 0, 0.5);
     }
+  }
+
+  .carousel .control-dots {
+    margin: ${({ theme }) => theme.margin.medium} 0;
   }
 
   .carousel .control-dots .dot {
@@ -170,27 +211,27 @@ export const GlobalCarouselStyles = styled.div`
   .carousel .legend {
     background: none;
     color: ${({ theme }) => theme.colors.textPrimary};
-    font-size: 1.1rem;
-    padding: 10px;
+    font-size: ${({ theme }) => theme.fontSizes.medium};
+    padding: ${({ theme }) => theme.padding.small};
     bottom: 20px;
     opacity: 1;
   }
 `;
 
 export const HowItWorksSection = styled.div`
-  padding: 40px 20px;
+  padding: ${({ theme }) => theme.padding.large} ${({ theme }) => theme.padding.medium};
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin: 40px 0;
+  border-radius: ${({ theme }) => theme.borderRadius.large};
+  margin: ${({ theme }) => theme.margin.large} 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 `;
 
 export const MoreFeaturesSection = styled.div`
-  padding: 40px 20px;
+  padding: ${({ theme }) => theme.padding.large} ${({ theme }) => theme.padding.medium};
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin: 40px 0;
+  border-radius: ${({ theme }) => theme.borderRadius.large};
+  margin: ${({ theme }) => theme.margin.large} 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 `;

@@ -23,12 +23,33 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden; /* Prevent horizontal scroll */
+    font-size: ${({ theme }) => theme.fontSizes.medium};
+
+    @media ${({ theme }) => theme.responsive.tablet} {
+      font-size: ${({ theme }) => theme.fontSizes.small};
+    }
+
+    @media ${({ theme }) => theme.responsive.mobile} {
+      font-size: ${({ theme }) => theme.fontSizes.small};
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     font-weight: ${({ theme }) => theme.fonts.weights.bold};
     color: ${({ theme }) => theme.colors.textPrimary};
+  }
+
+  h1 {
+    font-size: ${({ theme }) => theme.fontSizes.xxlarge};
+  }
+
+  h2 {
+    font-size: ${({ theme }) => theme.fontSizes.xlarge};
+  }
+
+  h3 {
+    font-size: ${({ theme }) => theme.fontSizes.large};
   }
 
   p {

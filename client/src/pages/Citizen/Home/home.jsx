@@ -45,10 +45,15 @@ const HomePage = () => {
           showThumbs={false}
         >
           <div>
-            <CarouselImage src="/image1.png" alt="Community Action 1" />
+            <CarouselImage
+              src="https://assets.telegraphindia.com/telegraph/1cc1271d-257b-478a-b2fc-c862ad8ff27c.jpg"
+              alt="Community Action 1"
+            />
             <SlideContent>
               <SlideTitle>Empowering Communities</SlideTitle>
-              <SlideDescription>Report local issues and contribute to a better neighborhood.</SlideDescription>
+              <SlideDescription>
+                Report local issues and contribute to a better neighborhood.
+              </SlideDescription>
               <SlideButton to="/report">Get Started</SlideButton>
             </SlideContent>
           </div>
@@ -56,7 +61,9 @@ const HomePage = () => {
             <CarouselImage src="/image2.png" alt="Issue Resolution 2" />
             <SlideContent>
               <SlideTitle>Efficient Resolution</SlideTitle>
-              <SlideDescription>Track progress and see issues resolved by dedicated technicians.</SlideDescription>
+              <SlideDescription>
+                Track progress and see issues resolved by dedicated technicians.
+              </SlideDescription>
               <SlideButton to="/myreports">View My Reports</SlideButton>
             </SlideContent>
           </div>
@@ -64,7 +71,9 @@ const HomePage = () => {
             <CarouselImage src="/image3.png" alt="Local Impact 3" />
             <SlideContent>
               <SlideTitle>Transparent & Accountable</SlideTitle>
-              <SlideDescription>Access analytics and user management for full oversight.</SlideDescription>
+              <SlideDescription>
+                Access analytics and user management for full oversight.
+              </SlideDescription>
               <SlideButton to="/admin/dashboard">Admin Dashboard</SlideButton>
             </SlideContent>
           </div>

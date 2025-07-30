@@ -42,7 +42,7 @@ const Layout = () => {
         {isLoggedIn && (
           <>
             <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-            <Overlay isOpen={sidebarOpen && isMobile} onClick={toggleSidebar} />
+            <Overlay $isOpen={sidebarOpen && isMobile} onClick={toggleSidebar} />
           </>
         )}
         <ContentWrapper>

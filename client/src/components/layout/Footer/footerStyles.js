@@ -5,7 +5,8 @@ export const FooterContainer = styled.footer`
   backdrop-filter: ${({ theme }) => theme.glassmorphism.backdropFilter};
   color: ${({ theme }) => theme.colors.textSecondary};
   text-align: center;
-  padding: 10px;
+  padding: ${({ theme }) => theme.padding.medium};
   width: 100%;
+  font-size: ${({ theme }) => theme.fontSizes.small};
   /* Removed fixed positioning */
 `;

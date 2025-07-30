@@ -1,3 +1,10 @@
+const breakpoints = {
+  mobile: '480px',
+  tablet: '768px',
+  laptop: '1024px',
+  desktop: '1200px',
+};
+
 const theme = {
   colors: {
     primary: 'rgba(255, 255, 255, 0.2)', // Frosted White
@@ -31,6 +38,35 @@ const theme = {
       bold: 700,
     },
   },
+  fontSizes: {
+    small: '0.8rem',
+    medium: '1rem',
+    large: '1.2rem',
+    xlarge: '1.5rem',
+    xxlarge: '2rem',
+  },
+  padding: {
+    small: '0.5rem',
+    medium: '1rem',
+    large: '2rem',
+  },
+  margin: {
+    small: '0.5rem',
+    medium: '1rem',
+    large: '2rem',
+  },
+  borderRadius: {
+    small: '4px',
+    medium: '8px',
+    large: '12px',
+  },
+  responsive: {
+    mobile: `(max-width: ${breakpoints.mobile})`,
+    tablet: `(max-width: ${breakpoints.tablet})`,
+    laptop: `(max-width: ${breakpoints.laptop})`,
+    desktop: `(max-width: ${breakpoints.desktop})`,
+  },
 };
+
 
 export default theme;

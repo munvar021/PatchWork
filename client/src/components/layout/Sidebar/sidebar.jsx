@@ -23,11 +23,13 @@ import {
   faChartBar, // For Analytics
   faUserShield, // For UserManagement
   faUserCog, // For AssignTask
+  faHome,
 } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../../../context/AuthContext";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
-  // Placeholder for user role - this would come from context/Redux in a real app
-  const userRole = "admin"; // For testing, set to 'citizen', 'technician', or 'admin'
+  const { user } = useAuth();
+  const userRole = user?.role; // Get user role from AuthContext
 
   return (
     <SidebarContainer $isOpen={isOpen}>
@@ -43,11 +45,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       </SidebarLogo>
       <NavList>
         {/* Citizen Links */}
-        {(userRole === "citizen" || userRole === "admin") && (
+        {userRole === "citizen" && (
           <>
             <NavItem>
               <NavLink to="/">
-                <FontAwesomeIcon icon={faTachometerAlt} />
+                <FontAwesomeIcon icon={faHome} />
                 {isOpen && <AnimatedSpan $isOpen={isOpen}>Home</AnimatedSpan>}
               </NavLink>
             </NavItem>
@@ -73,7 +75,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         )}
 
         {/* Technician Links */}
-        {(userRole === "technician" || userRole === "admin") && (
+        {userRole === "technician" && (
           <>
             <NavItem>
               <NavLink to="/technician/issues">

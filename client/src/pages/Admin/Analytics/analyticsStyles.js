@@ -1,22 +1,35 @@
 import styled from 'styled-components';
 
 export const AnalyticsContainer = styled.div`
-  padding: 20px;
+  padding: ${({ theme }) => theme.padding.large};
+
+  @media ${({ theme }) => theme.responsive.tablet} {
+    padding: ${({ theme }) => theme.padding.medium};
+  }
+
+  @media ${({ theme }) => theme.responsive.mobile} {
+    padding: ${({ theme }) => theme.padding.small};
+  }
 `;
 
 export const Title = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: ${({ theme }) => theme.fontSizes.xxlarge};
+  margin-bottom: ${({ theme }) => theme.margin.large};
+
+  @media ${({ theme }) => theme.responsive.tablet} {
+    font-size: ${({ theme }) => theme.fontSizes.xlarge};
+  }
 `;
 
 export const Paragraph = styled.p`
-  margin-bottom: 15px;
+  margin-bottom: ${({ theme }) => theme.margin.medium};
+  font-size: ${({ theme }) => theme.fontSizes.medium};
 `;
 
 export const ChartPlaceholder = styled.div`
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 30px;
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
+  padding: ${({ theme }) => theme.padding.large};
   min-height: 300px;
   display: flex;
   align-items: center;
@@ -24,16 +37,18 @@ export const ChartPlaceholder = styled.div`
   color: ${({ theme }) => theme.colors.textSecondary};
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  margin-bottom: 20px;
+  margin-bottom: ${({ theme }) => theme.margin.large};
 `;
 
 export const ExportButton = styled.button`
-  padding: 10px 15px;
+  padding: ${({ theme }) => theme.padding.medium} ${({ theme }) => theme.padding.large};
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
   cursor: pointer;
+  font-size: ${({ theme }) => theme.fontSizes.medium};
+
   &:hover {
     background-color: #0056b3;
   }
