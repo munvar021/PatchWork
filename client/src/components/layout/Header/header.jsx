@@ -6,9 +6,11 @@ import { faBars, faUserCircle, faSignOutAlt, faSignInAlt } from '@fortawesome/fr
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
 
-const ProjectName = styled.span`
+const ProjectName = styled(Link)`
   font-size: 1.5rem;
   font-weight: bold;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.textPrimary};
 
   @media (max-width: 1023px) {
     margin-left: 0;
@@ -71,7 +73,7 @@ const Header = ({ toggleSidebar, isMobile, sidebarOpen }) => {
           <FontAwesomeIcon icon={faBars} />
         </ToggleButton>
       )}
-      <ProjectName>PatchWork</ProjectName>
+      <ProjectName to="/">PatchWork</ProjectName>
       {!isLoggedIn ? (
         <AuthLinks>
           <StyledLoginButton to="/login">

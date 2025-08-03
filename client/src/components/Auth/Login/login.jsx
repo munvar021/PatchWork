@@ -10,6 +10,7 @@ import {
   ErrorMessage,
   StyledLink,
 } from "./loginStyles";
+import { loginUser } from "../../../services/api";
 
 const Login = () => {
   const {
@@ -20,66 +21,55 @@ const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log("Login Data:", data);
-    // Dummy authentication logic for frontend testing
-    if (data.email === "admin@example.com" && data.password === "password") {
-      login("admin");
+  const onSubmit = async (data) => {
+    try {
+      const res = await loginUser(data);
+      console.log("Login successful:", res.data);
+      login(res.data.token); // Assuming the token is returned in res.data.token
       navigate("/");
-    } else if (
-      data.email === "citizen@example.com" &&
-      data.password === "password"
-    ) {
-      login("citizen");
-      navigate("/");
-    } else if (
-      data.email === "technician@example.com" &&
-      data.password === "password"
-    ) {
-      login("technician");
-      navigate("/");
-    } else {
-      alert(
-        "Invalid credentials. Please try admin@example.com, citizen@example.com, or technician@example.com with password: password"
-      );
+    } catch (err) {
+      console.error("Login error:", err.response ? err.response.data : err.message);
+      alert(err.response ? err.response.data.msg : "Login failed");
     }
   };
 
   return (
     <FormContainer>
-      <h2>Login</h2>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          type="email"
-          placeholder="Email"
-          {...register("email", {
-            required: "Email is required",
-            pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i,
-          })}
-        />
-        {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+      <div className="form-content">
+        <h2>Login</h2>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Input
+            type="email"
+            placeholder="Email"
+            {...register("email", {
+              required: "Email is required",
+              pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i,
+            })}
+          />
+          {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
 
-        <Input
-          type="password"
-          placeholder="Password"
-          {...register("password", {
-            required: "Password is required",
-            minLength: {
-              value: 6,
-              message: "Password must be at least 6 characters",
-            },
-          })}
-        />
-        {errors.password && (
-          <ErrorMessage>{errors.password.message}</ErrorMessage>
-        )}
+          <Input
+            type="password"
+            placeholder="Password"
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+            })}
+          />
+          {errors.password && (
+            <ErrorMessage>{errors.password.message}</ErrorMessage>
+          )}
 
-        <Button type="submit">Login</Button>
-      </Form>
-      <p>
-        Don't have an account?{" "}
-        <StyledLink to="/register">Register here</StyledLink>
-      </p>
+          <Button type="submit">Login</Button>
+        </Form>
+        <p>
+          Don't have an account?{" "}
+          <StyledLink to="/register">Register here</StyledLink>
+        </p>
+      </div>
     </FormContainer>
   );
 };
