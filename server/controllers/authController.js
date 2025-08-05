@@ -59,6 +59,7 @@ exports.login = async (req, res) => {
     const payload = {
       user: {
         id: user.id,
+        role: user.role, // Include user role in the payload
       },
     };
 
@@ -68,7 +69,7 @@ exports.login = async (req, res) => {
       { expiresIn: 3600 },
       (err, token) => {
         if (err) throw err;
-        res.json({ token });
+        res.json({ token, role: user.role }); // Include role in the response
       }
     );
   } catch (err) {

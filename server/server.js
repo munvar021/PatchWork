@@ -17,11 +17,11 @@ app.use("/api/auth", require("./routes/auth"));
 
 // Generic error handling middleware
 app.use((err, req, res, next) => {
-  console.error('Unhandled error:', err.stack);
-  res.status(err.statusCode || 500).send(err.message || 'Something broke!');
+  console.error("Unhandled error:", err.stack);
+  res.status(err.statusCode || 500).send(err.message || "Something broke!");
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);

@@ -1,15 +1,19 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext'; // Import useAuth
 
 const PrivateRoute = ({ children, allowedRoles }) => {
-  // Placeholder for actual authentication logic
-  // In a real application, you would get the user's role from
-  // a context, Redux store, or decoded JWT.
-  const userRole = 'citizen'; // This should be dynamic based on login
+  const { isLoggedIn, userRole } = useAuth(); // Get isLoggedIn and userRole from context
 
-  if (!userRole || (allowedRoles && !allowedRoles.includes(userRole))) {
-    // Redirect to a login page or unauthorized page
+  if (!isLoggedIn) {
+    // Not logged in, redirect to login
     return <Navigate to="/login" replace />;
+  }
+
+  if (allowedRoles && !allowedRoles.includes(userRole)) {
+    // Logged in but unauthorized role, redirect to a suitable page (e.g., home or unauthorized)
+    // For now, let's redirect to home. You might want a dedicated unauthorized page.
+    return <Navigate to="/" replace />;
   }
 
   return children;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Header from './Header/header';
 import Sidebar from './Sidebar/sidebar';
 import Footer from './Footer/footer';
@@ -13,9 +13,10 @@ import AppRoutes from '../../routes/AppRoutes';
 import { useAuth } from '../../context/AuthContext';
 
 const Layout = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, userRole } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -37,23 +38,21 @@ const Layout = () => {
   }, []);
 
   return (
-    <Router>
-      <AppContainer>
-        {isLoggedIn && (
-          <>
-            <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-            <Overlay $isOpen={sidebarOpen && isMobile} onClick={toggleSidebar} />
-          </>
-        )}
-        <ContentWrapper>
-          <Header toggleSidebar={toggleSidebar} isMobile={isMobile} $sidebarOpen={sidebarOpen && isLoggedIn} $isLoggedIn={isLoggedIn} />
-          <MainContent $sidebarOpen={sidebarOpen} $isLoggedIn={isLoggedIn}>
-            <AppRoutes />
-          </MainContent>
-          <Footer $sidebarOpen={sidebarOpen && isLoggedIn} />
-        </ContentWrapper>
-      </AppContainer>
-    </Router>
+    <AppContainer>
+      {isLoggedIn && (
+        <>
+          <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+          <Overlay $isOpen={sidebarOpen && isMobile} onClick={toggleSidebar} />
+        </>
+      )}
+      <ContentWrapper>
+        <Header toggleSidebar={toggleSidebar} isMobile={isMobile} $sidebarOpen={sidebarOpen && isLoggedIn} $isLoggedIn={isLoggedIn} />
+        <MainContent $sidebarOpen={sidebarOpen} $isLoggedIn={isLoggedIn}>
+          <AppRoutes />
+        </MainContent>
+        <Footer $sidebarOpen={sidebarOpen && isLoggedIn} />
+      </ContentWrapper>
+    </AppContainer>
   );
 };
 

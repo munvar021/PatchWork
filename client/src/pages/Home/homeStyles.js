@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { fadeIn, slideInFromLeft } from "../../../animations/animations";
+import { fadeIn, slideInFromLeft } from "../../animations/animations";
 
 export const HomePageContainer = styled.div`
   padding: ${({ theme }) => theme.padding.large};
@@ -74,7 +74,8 @@ export const FeatureDescription = styled.p`
 
 export const CtaButton = styled(Link)`
   display: inline-block;
-  padding: ${({ theme }) => theme.padding.medium} ${({ theme }) => theme.padding.large};
+  padding: ${({ theme }) => theme.padding.medium}
+    ${({ theme }) => theme.padding.large};
   background: ${({ theme }) => theme.gradients.button};
   color: white;
   border: none;
@@ -93,7 +94,8 @@ export const CtaButton = styled(Link)`
 
   @media ${({ theme }) => theme.responsive.mobile} {
     font-size: ${({ theme }) => theme.fontSizes.medium};
-    padding: ${({ theme }) => theme.padding.small} ${({ theme }) => theme.padding.medium};
+    padding: ${({ theme }) => theme.padding.small}
+      ${({ theme }) => theme.padding.medium};
   }
 `;
 
@@ -155,7 +157,8 @@ export const SlideDescription = styled.p`
 
 export const SlideButton = styled(Link)`
   display: inline-block;
-  padding: ${({ theme }) => theme.padding.small} ${({ theme }) => theme.padding.medium};
+  padding: ${({ theme }) => theme.padding.small}
+    ${({ theme }) => theme.padding.medium};
   background: ${({ theme }) => theme.gradients.button};
   color: white;
   border: none;
@@ -219,7 +222,8 @@ export const GlobalCarouselStyles = styled.div`
 `;
 
 export const HowItWorksSection = styled.div`
-  padding: ${({ theme }) => theme.padding.large} ${({ theme }) => theme.padding.medium};
+  padding: ${({ theme }) => theme.padding.large}
+    ${({ theme }) => theme.padding.medium};
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
   border-radius: ${({ theme }) => theme.borderRadius.large};
@@ -228,7 +232,8 @@ export const HowItWorksSection = styled.div`
 `;
 
 export const MoreFeaturesSection = styled.div`
-  padding: ${({ theme }) => theme.padding.large} ${({ theme }) => theme.padding.medium};
+  padding: ${({ theme }) => theme.padding.large}
+    ${({ theme }) => theme.padding.medium};
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
   border-radius: ${({ theme }) => theme.borderRadius.large};

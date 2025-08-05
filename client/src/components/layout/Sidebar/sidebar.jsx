@@ -28,8 +28,7 @@ import {
 import { useAuth } from "../../../context/AuthContext";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
-  const { user } = useAuth();
-  const userRole = user?.role; // Get user role from AuthContext
+  const { userRole } = useAuth(); // Get userRole directly from useAuth
 
   return (
     <SidebarContainer $isOpen={isOpen}>
@@ -48,7 +47,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         {userRole === "citizen" && (
           <>
             <NavItem>
-              <NavLink to="/">
+              <NavLink to="/citizen/home">
                 <FontAwesomeIcon icon={faHome} />
                 {isOpen && <AnimatedSpan $isOpen={isOpen}>Home</AnimatedSpan>}
               </NavLink>

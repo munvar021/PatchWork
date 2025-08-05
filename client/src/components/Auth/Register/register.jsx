@@ -10,6 +10,7 @@ import {
 } from "./registerStyles";
 import { registerUser } from "../../../services/api";
 import { useNavigate } from "react-router-dom";
+import { showToast } from '../../../utils/toastUtils';
 
 const Register = () => {
   const {
@@ -25,11 +26,11 @@ const Register = () => {
     try {
       const res = await registerUser(data);
       console.log("Registration successful:", res.data);
-      alert("Registration successful! Please log in.");
+      showToast("Registration successful! Please log in.", 'success');
       navigate("/login");
     } catch (err) {
       console.error("Registration error:", err.response ? err.response.data : err.message);
-      alert(err.response ? err.response.data.msg : "Registration failed");
+      showToast(err.response ? err.response.data.msg : "Registration failed", 'error');
     }
   };
 

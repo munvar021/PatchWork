@@ -8,6 +8,11 @@ export const MapWrapper = styled.div`
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 
+  .leaflet-container {
+    height: 100%;
+    width: 100%;
+  }
+
   @media ${({ theme }) => theme.responsive.tablet} {
     height: 60vh;
     margin: ${({ theme }) => theme.margin.medium} 0;

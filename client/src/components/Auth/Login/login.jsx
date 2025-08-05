@@ -11,6 +11,7 @@ import {
   StyledLink,
 } from "./loginStyles";
 import { loginUser } from "../../../services/api";
+import { showToast } from '../../../utils/toastUtils';
 
 const Login = () => {
   const {
@@ -24,12 +25,19 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       const res = await loginUser(data);
-      console.log("Login successful:", res.data);
-      login(res.data.token); // Assuming the token is returned in res.data.token
-      navigate("/");
+      login(res.token, res.role);
+      if (res.role === 'citizen') {
+        navigate("/citizen/home");
+      } else if (res.role === 'technician') {
+        navigate("/technician/issues");
+      } else if (res.role === 'admin') {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/");
+      }
     } catch (err) {
       console.error("Login error:", err.response ? err.response.data : err.message);
-      alert(err.response ? err.response.data.msg : "Login failed");
+      showToast(err.response ? err.response.data.msg : "Login failed", 'error');
     }
   };
 

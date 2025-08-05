@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import MapView from "../MapView/mapView"; // Adjusted import path for MapView
+import MapView from "../Citizen/MapView/mapView"; // Adjusted import path for MapView
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
-import { useAuth } from "../../../context/AuthContext";
-import AnimatedFeatureCard from "../../../components/FeatureCard/AnimatedFeatureCard";
+import { useAuth } from "../../context/AuthContext";
+import AnimatedFeatureCard from "../../components/FeatureCard/AnimatedFeatureCard";
 import {
   HomePageContainer,
   Title,
