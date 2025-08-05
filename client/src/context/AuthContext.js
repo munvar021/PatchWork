@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import { showToast } from '../utils/toastUtils';
 
 const AuthContext = createContext(null);
 
@@ -14,6 +15,7 @@ export const AuthProvider = ({ children }) => {
     setUserRole(role);
     localStorage.setItem('token', token); // Store token
     localStorage.setItem('userRole', role); // Store role
+    showToast("Logged in successfully!", 'success');
   };
 
   // Placeholder for logout function
@@ -23,6 +25,7 @@ export const AuthProvider = ({ children }) => {
     setUserRole(null);
     localStorage.removeItem('token'); // Clear token
     localStorage.removeItem('userRole'); // Clear role
+    showToast("Logged out successfully!", 'success');
   };
 
   // Add an effect to check localStorage on initial load

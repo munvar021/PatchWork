@@ -23,11 +23,11 @@ const theme = {
     button: 'linear-gradient(to right, #FF7043, #FFCA28)',
   },
   glassmorphism: {
-    background: 'rgba(255, 255, 255, 0.2)',
+    background: 'rgba(255, 255, 255, 0.4)',
     backdropFilter: 'blur(16px)',
     webkitBackdropFilter: 'blur(16px)',
     borderRadius: '12px',
-    border: '1px solid rgba(255, 255, 255, 0.3)',
+    border: '1px solid rgba(255, 255, 255, 0.6)',
   },
   fonts: {
     primary: "'Poppins', sans-serif",

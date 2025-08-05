@@ -11,7 +11,7 @@ import {
   StyledLink,
 } from "./loginStyles";
 import { loginUser } from "../../../services/api";
-import { showToast } from '../../../utils/toastUtils';
+
 
 const Login = () => {
   const {
@@ -37,7 +37,6 @@ const Login = () => {
       }
     } catch (err) {
       console.error("Login error:", err.response ? err.response.data : err.message);
-      showToast(err.response ? err.response.data.msg : "Login failed", 'error');
     }
   };
 

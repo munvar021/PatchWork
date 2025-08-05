@@ -3,27 +3,38 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Layout from './components/Layout/layout';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { AuthProvider } from './context/AuthContext';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Toast from './components/Toast/Toast';
 
 function App() {
+  const [toastMessage, setToastMessage] = React.useState(null);
+  const [toastType, setToastType] = React.useState('info');
+  const [toastDuration, setToastDuration] = React.useState(3000);
+
+  const showAppToast = (message, type = 'info', duration = 3000) => {
+    setToastMessage(message);
+    setToastType(type);
+    setToastDuration(duration);
+  };
+
+  const closeAppToast = () => {
+    setToastMessage(null);
+  };
+
+  // Make showAppToast globally accessible for toastUtils.js
+  React.useEffect(() => {
+    window.showAppToast = showAppToast;
+  }, []);
+
   return (
     <Router>
       <AuthProvider>
         <GlobalStyle />
         <Layout />
-        <ToastContainer
-          position="bottom-right"
-          autoClose={3000}
-          hideProgressBar={true}
-          newestOnTop={false}
-          closeOnClick
-          closeButton={false}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
+        <Toast
+          message={toastMessage}
+          type={toastType}
+          duration={toastDuration}
+          onClose={closeAppToast}
         />
       </AuthProvider>
     </Router>
